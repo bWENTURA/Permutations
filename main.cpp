@@ -18,7 +18,6 @@ std::vector<int> create_vector(const int N){
 }
 
 std::list<std::vector<int>> create_array_of_perm(const int N){
-    const int arr_length = factorial(N);
     std::vector<int> temp_array = create_vector(N);
     std::list<std::vector<int>> matrix;  
     while(next_permutation(temp_array.begin(), temp_array.end())){
