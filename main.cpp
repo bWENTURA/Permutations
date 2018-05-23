@@ -10,15 +10,15 @@ int factorial(const int N){
     return temp;
 }
 
-//Funkcja tworząca vector o zawartości [1, 2, 3, ..., N]
+//Funkcja zwracająca vector o zawartości [1, 2, 3, ..., N]
 std::vector<int> create_vector(const int N){
-    std::vector<int> array(N);
+    std::vector<int> array;
     for(int i = 0; i < N; ++i)
-        array[i] = i + 1;
+        array.push_back(i + 1);
     return array;
 }
 
-//Funkcja zwracająca tablicę tablic (macierz) permutacji
+//Funkcja zwracająca vector vectorów (macierz) permutacji
 std::vector<std::vector<int>> create_array_of_permutations(const int N){
     std::vector<int> temp_array = create_vector(N);
     std::vector<std::vector<int>> matrix;
@@ -38,6 +38,12 @@ int main(){
     std::vector<std::vector<int>> matrix;
     std::cout << "Enter limit of the set [1..N]: " << std::endl;
     std::cin >> N;
-    matrix = create_array_of_permutations(N);
+    if(N > 3)
+        matrix = create_array_of_permutations(N);
+    for(auto it: matrix){
+        for(auto small_it: it)
+            std::cout << small_it << " ";
+         std::cout << "\n";
+    }
     return 0;
 }
